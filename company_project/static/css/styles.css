@@ -1,0 +1,21 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  padding: 5px;
+  background: lightgray;
+  margin: 5px 0;
+}
+
+#chart {
+  width: 80%;
+  height: 300px;
+}

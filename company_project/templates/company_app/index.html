@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Data</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+
+    <div class="container">
+        <h2>Upload CSV File</h2>
+        <form id="uploadForm">
+            <input type="file" id="csvFile" name="csv_file" required>
+            <button type="submit">Upload</button>
+        </form>
+
+        <h2>Companies</h2>
+        <ul id="companyList">
+            {% for company in companies %}
+                <li onclick="loadCompanyData('{{ company }}')">{{ company }}</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Company Data</h2>
+        <canvas id="chart"></canvas>
+    </div>
+
+    <script src="{% static 'js/script.js' %}?v={{ timestamp }}"></script>
+</body>
+</html>
